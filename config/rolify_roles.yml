@@ -1,0 +1,6 @@
+:multiple_resource_role:
+  resource: [Project, Audit]
+:single_resource_role:
+  resource: Project
+:resourceless_role:
+  resource:
