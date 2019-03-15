@@ -12,20 +12,20 @@ I'll try to extend this library to support more cases (which I did not need)
   - Adding a role to User for a whole Class (not only instances of a class)
 
 ### Structure
-- config
+- **config**
   - contains configuration file `rolify_roles.yml` where you define  Roles that can be created and to which instance it can be associated 
   - `initializers`
     - You have to require new library in your application initializer
 
-- `app/models`
+- **app/models**
   - In a model User, that will be probably used to provide an authentication solution, you have to include this Library for a usage  
 
-- `lib`
+- **lib**
   - Contains a logic with defined restrictions described in Motivation
 
 # Test
  
-## Passing
+## Correct State
 - `User.last.add_role :multiple_resource_role, Project.last`
 - `User.last.add_role :multiple_resource_role, Audit.last`
 - `User.last.add_role :single_resource_role, Project.last`
@@ -63,5 +63,17 @@ I'll try to extend this library to support more cases (which I did not need)
 - `User.last.add_role :resourceless_role, Project.first`
   - RolifyRolesException: Not allowed - Role resourceless_role can't be assigned to any resource!
 
-### TODO
-- Docker Compose with simple rails app and data for trying this out  
+# Docker Compose
+I've added a docker compose file, which creates an one container for Rails application and second for a mysql database
+
+To try the library out run following commands
+
+1. `cd RolifyRestriction`
+2. `docker-compose build`
+3. `docker-compose up -d` # Keep containers up and running
+4. `sudo docker-compose run web bash` # Opens bash terminal at rails application
+5. `rake db:create` # Create database on mysql container 
+6. `rake db:migrate` # Run migrations to create table
+7. `rake db:seed` # Insert test data into database
+8. `rails c` # Open rails console
+9. Test it! - Commands are listed above
