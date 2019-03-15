@@ -20,7 +20,8 @@ services:
       - db
     stdin_open: true
     tty: true
-
+    ports:
+      - "3000:3000"
 volumes:
   db_data:
 
