@@ -17,3 +17,5 @@ COPY Gemfile.lock /mnt/rails/
 # Bundle install
 RUN bundle install
 COPY . /mnt/rails
+
+EXPOSE 3000
