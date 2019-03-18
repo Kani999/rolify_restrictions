@@ -1,6 +1,8 @@
 # Rolify Restrictions
 Library for extending gem https://github.com/RolifyCommunity/rolify which allows you to define some restrictions for defining roles for users.
 
+Library created for rolify issue https://github.com/RolifyCommunity/rolify/issues/488
+
 ### Motivation
 I had to override the standard behavior of `add_role` command to add some logic when the Role to a Resource can be inserted or not.
 
